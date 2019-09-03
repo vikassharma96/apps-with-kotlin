@@ -1,0 +1,65 @@
+API level 11 - fragment more dynamic and flexible UI on large screen size such as tablet
+OS can only open activity
+Activity inherit from Context class but fragment not so we have to use context property from fragment to have access to app 
+data typically associated with the context such as string and image resource
+ActivityCompat extends ContextCompat
+open class Fragment : ComponentCallbacks
+Fragment have same back stack as activity except that the entire stack contained in activity
+Fragment contain arguments in the form of bundle which is key value store also known as dictionary or associative array data
+structure
+safe args is gradle plugin that gurantee both side match up while transferring data from fragment a and fragment b
+Android allows us to navigate between activities both within your app and to activities provided by other applications for eg
+we can launch system camera activity to capture photos or launch a contact app to choose from
+Intent can be 
+Explicit - use to launch an activity using the target activity class and mostly used to launch other activities within your app
+navigation component do this for us when we navigate to other activities from naviagtion graph in our app
+Implicit - Implicit intent provide abstract description of the operation to be performed and they often used to launch activities
+that are exposed by other applications. each implicit intent must have an action e.g ACTION_VIEW, ACTION_DIAL, ACTION_EDIT
+in addition to action implicit intent have category and datatypes to further describe the action e.g CATEGORY_APP_MUSIC, 
+CATEGORY_APP_GALLERY, CATEGORY_APP_CALENDER also include data type MIME DATA TYPE like text or jpeg which allows to choose
+app based on data they can accept
+activities that are launched  explicitely can be only declared just with activity tag in manifest while implicit lanuch activity
+require intent fiter, intent filter is used to expose that your activity can responsd to implicit intent with certain action
+categoty and data type
+val args = GameWonFragmentArgs.fromBundle(arguments)
+   val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain")
+            .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.numCorrect, args.numQuestions))
+   return shareIntent
+}
+Intent extra is like key value data similar we use in fragment used to provide argument for intent some argument have predefined
+key such as to add strin we have Intent.EXTRA_TEXT key
+private fun getShareIntent() : Intent {
+        val args = GameWonFragmentArgs.fromBundle(arguments!!)
+        return ShareCompat.IntentBuilder.from(activity)
+                .setText(getString(R.string.share_success_text, args.numCorrect, args.numQuestions))
+                .setType("text/plain")
+                .intent
+  }
+  if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+  //package manager knows about every activity that registered in manifest across every application
+            // hide the menu item if it doesn't resolve
+            menu?.findItem(R.id.share)?.setVisible(false)
+  }
+  ShareCompat fluent api to handle sharing
+ Navigation listener in on create they called whenever destination changes 
+  // prevent nav gesture if not on start destination
+navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, args: Bundle? ->
+   if (nd.id == nc.graph.startDestination) {
+       drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+   } else {
+       drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+   }
+}
+
+Every activity or every fragment have lifecycle
+        resumed
+           |
+        started
+           |
+        created
+           |
+ initialize  destroy
+ why all this matter and what the use of lifecycle - to know all about this we can manage situtation like which resource to 
+ available in background or to pause as we have to give smoth experience to user do program proactively which means clean
+ unused resource and defensively in case os does something like restart
