@@ -63,3 +63,6 @@ Every activity or every fragment have lifecycle
  why all this matter and what the use of lifecycle - to know all about this we can manage situtation like which resource to 
  available in background or to pause as we have to give smoth experience to user do program proactively which means clean
  unused resource and defensively in case os does something like restart
+ 
+ MotionLayout is a library that lets you add rich motion into your Android app. It's based upon ConstraintLayout and lets you 
+ animate anything that you can build using ConstraintLayout.
