@@ -80,3 +80,58 @@ extension function for an android view class so with kotlin extension we can use
 view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
 
 Android application provide onscreen back button which handle back stack just like back button in android device
+
+
+Terminating a process
+
+Make sure you are using a device or emulator running at least API level 28. This is easier to set up for an emulator.
+Make sure adb is installed. If not, see instructions below.
+Make sure your app is in the background - this only happens when the app is in the background. You can do this by hitting 
+the home button.
+Run the command:
+adb shell am kill com.example.android.dessertpusher
+This will stop the process as-if it had been stopped by the Android operating system.
+Adding ADB to your path
+If you try running adb in a terminal and you see something similar to the message below, read on:
+Command Line Interface showing "command not found" after typing adb
+ADB (Android Debug Bridge) is command line tool, and if you want to use it from the command line, it needs to be part of 
+your path. First you’ll find where the adb executable 
+lives, then you’ll add that to your path.
+1. Find the platform-tools folder which contains adb:
+Adb is part of the Android SDK, which is downloaded as part of Android Studio. You can find the location of this SDK by 
+going to Tools -> SDK Manager
+ADB is located in this location, followed by platform-tools/ so in the example above, you could find adb in:
+/Users/lmf/Library/Android/sdk/platform-tools/
+2. Add adb to your path:
+Adding a variable to your path varies by platform, follow the instructions below to add the platform-tools 
+location you located above.
+Windows
+Go to Advanced system settings:
+Windows 8 and 10: Search -> System (Control Panel) -> Advanced system settings
+Windows 7: Right-click Computer -> Properties -> Advanced system settings
+Windows Vista: Right click My Computer -> Properties -> Advanced system settings
+Windows XP: Start -> Control Panel -> System -> Advanced tab
+Click Environment Variables
+Find the System Variables section and then look to see if you have a PATH environment variable:
+If you find one, click Edit
+If you do not find one, click New to add one
+Add ;<Path to platform-tools> to the end of the Variable value box
+Click OK on all windows to save
+Ensure you can run adb by typing:
+adb
+You should see output, including something like:
+text showing Android Debug Bridge version 1.0.40 Version 4986621
+Mac/Linux
+Adding a path variable is done using the terminal on Mac/Linux.
+Open a Terminal
+Create a .bash_profile file if you don’t have one already. This is a configuration file for bash) - it’s executed when you start bash:
+touch ~/.bash_profile
+Open up the ~/.bash_profile file in your preferred text editor:
+open ~/.bash_profile
+Add the following to your .bash_profile file and save:
+export PATH=<Path to platform-tools>:$PATH
+Either restart your terminal, or enter:
+source ~/.bash_profile
+Ensure you can run adb by typing:
+adb
+You should see output, including something like:
