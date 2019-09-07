@@ -27,6 +27,7 @@ val args = GameWonFragmentArgs.fromBundle(arguments)
             .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.numCorrect, args.numQuestions))
    return shareIntent
 }
+implicit launch activity required intent filter while normal activity can declared with <activity> tag only
 Intent extra is like key value data similar we use in fragment used to provide argument for intent some argument have predefined
 key such as to add strin we have Intent.EXTRA_TEXT key
 private fun getShareIntent() : Intent {
@@ -66,3 +67,16 @@ Every activity or every fragment have lifecycle
  
  MotionLayout is a library that lets you add rich motion into your Android app. It's based upon ConstraintLayout and lets you 
  animate anything that you can build using ConstraintLayout.
+ 
+ Navigation Controller class manages navigation within our navigation host fragment
+ navigation host fragment is the parent in our view hierarchy of current fragment it means we can traverse up this heirarchy 
+ to find nav host fragment from any view in our fragment
+ 
+Navigation.findNavController(view).navigate(R.id.action_titleFragment_to_gameFragment)
+
+Kotlin Extension function allow a class to extend the functionality of an existing class without subclassing it KTX has an 
+extension function for an android view class so with kotlin extension we can use 
+
+view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+
+Android application provide onscreen back button which handle back stack just like back button in android device
