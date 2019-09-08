@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.apparchitecture.screens.score
+package com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.score
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -8,7 +8,7 @@
 
         <variable
             name="scoreViewModel"
-            type="com.teckudos.devappswithkotlin.apparchitecture.screens.score.ScoreViewModel" />
+            type="com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.score.ScoreViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

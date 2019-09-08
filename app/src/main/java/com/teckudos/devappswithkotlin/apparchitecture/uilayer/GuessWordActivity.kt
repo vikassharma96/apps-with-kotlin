@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.apparchitecture
+package com.teckudos.devappswithkotlin.apparchitecture.uilayer
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.apparchitecture.screens.score
+package com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.score
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.databinding.FragmentScoreBinding
 
@@ -35,7 +34,12 @@ class ScoreFragment : Fragment() {
             container,
             false
         )
-        viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).score)
+        viewModelFactory =
+            ScoreViewModelFactory(
+                ScoreFragmentArgs.fromBundle(
+                    arguments!!
+                ).score
+            )
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(ScoreViewModel::class.java)
 

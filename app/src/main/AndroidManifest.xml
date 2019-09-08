@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.teckudos.devappswithkotlin">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".DevAppsKotlinApplication"
         android:allowBackup="true"
@@ -11,14 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".apparchitecture.GuessWordActivity">
+        <activity android:name=".apparchitecture.persistence.SleepTrackerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".lifeCycle.LifeCycleActivity">
+
+        <!--<activity
+            android:name=".GuessWordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape">
+            to lock screen to landscape</activity>-->
+        <activity android:name=".apparchitecture.uilayer.GuessWordActivity">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".lifecycle.LifeCycleActivity">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +47,7 @@
                  <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>-->
         </activity>
-        <activity android:name=".motionLayout.MotionLayoutActivity">
+        <activity android:name=".motionlayout.MotionLayoutActivity">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

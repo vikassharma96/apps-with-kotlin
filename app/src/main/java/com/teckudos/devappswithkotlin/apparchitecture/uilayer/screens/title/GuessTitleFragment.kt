@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.apparchitecture.screens.title
+package com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.title
 
 import android.os.Bundle
 import android.view.LayoutInflater

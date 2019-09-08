@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.apparchitecture.screens.score
+package com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.score
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 class ScoreViewModelFactory(private val finalScore: Int) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ScoreViewModel::class.java)) {
-            return ScoreViewModel(finalScore) as T
+            return ScoreViewModel(
+                finalScore
+            ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

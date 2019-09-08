@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.lifeCycle
+package com.teckudos.devappswithkotlin.lifecycle
 
 import android.content.ActivityNotFoundException
 import androidx.appcompat.app.AppCompatActivity

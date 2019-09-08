@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin.motionLayout
+package com.teckudos.devappswithkotlin.motionlayout
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -8,7 +8,7 @@
 
         <variable
             name="gameViewModel"
-            type="com.teckudos.devappswithkotlin.apparchitecture.screens.game.GuessGameViewModel" />
+            type="com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.game.GuessGameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,6 +64,7 @@
             android:textColor="@color/grey_text_color"
             android:textSize="14sp"
             android:textStyle="normal"
+            android:text="@{gameViewModel.currentTimeString}"
             app:layout_constraintBottom_toTopOf="@+id/score_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/guess_title_destination"
-        android:name="com.teckudos.devappswithkotlin.apparchitecture.screens.title.GuessTitleFragment"
+        android:name="com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.title.GuessTitleFragment"
         android:label="title_fragment"
         tools:layout="@layout/fragment_guess_title">
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/guess_game_destination"
-        android:name="com.teckudos.devappswithkotlin.apparchitecture.screens.game.GuessGameFragment"
+        android:name="com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.game.GuessGameFragment"
         android:label="game_fragment"
         tools:layout="@layout/fragment_guess_game">
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/score_destination"
-        android:name="com.teckudos.devappswithkotlin.apparchitecture.screens.score.ScoreFragment"
+        android:name="com.teckudos.devappswithkotlin.apparchitecture.uilayer.screens.score.ScoreFragment"
         android:label="score_fragment"
         tools:layout="@layout/fragment_score">
         <action
