@@ -170,3 +170,7 @@ DateUtils.formatElapsedTime(newTime) this formatting belongs to view modelto do 
 changing integer to string we usemethod called transformation.map so we have LiveData A we apply transformations and then 
 resul to LiveData B which we observer
 for complex transformation we have switch map or mediator live data
+
+Mobile device have processor and these days most of them have multiple hardware processor that each run processes concurrently
+this is called multiprocessing to use processor more efficiently the operating system can enable an application to create more
+than one thread of execution within a process this is called multithreading
