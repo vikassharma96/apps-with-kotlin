@@ -17,3 +17,6 @@ https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-iii-
 
 `Processes and threads`
 https://developer.android.com/guide/components/processes-and-threads#kotlin
+
+`Saving UI States`
+https://developer.android.com/topic/libraries/architecture/saving-states
