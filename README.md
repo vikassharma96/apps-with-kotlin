@@ -29,3 +29,6 @@ https://developer.android.com/guide/topics/resources/string-resource#formatting-
 
 `Bind layout views to Architecture Components`
 https://developer.android.com/topic/libraries/data-binding/architecture#livedata
+
+`Testing Room migrations`
+https://medium.com/androiddevelopers/testing-room-migrations-be93cdb0d975
