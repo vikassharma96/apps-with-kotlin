@@ -23,3 +23,9 @@ https://developer.android.com/topic/libraries/architecture/saving-states
 
 `A collection of samples to showcase different architectural tools and patterns for Android apps`
 https://github.com/googlesamples/android-architecture
+
+`String resources`
+https://developer.android.com/guide/topics/resources/string-resource#formatting-strings
+
+`Bind layout views to Architecture Components`
+https://developer.android.com/topic/libraries/data-binding/architecture#livedata
