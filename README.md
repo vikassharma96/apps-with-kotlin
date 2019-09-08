@@ -30,5 +30,9 @@ https://developer.android.com/guide/topics/resources/string-resource#formatting-
 `Bind layout views to Architecture Components`
 https://developer.android.com/topic/libraries/data-binding/architecture#livedata
 
-`Testing Room migrations`
+`Testing and Migrating Room Database`
 https://medium.com/androiddevelopers/testing-room-migrations-be93cdb0d975
+https://developer.android.com/training/data-storage/room/migrating-db-versions
+
+`separations of concerns`
+https://developer.android.com/jetpack/docs/guide#separation-of-concerns
