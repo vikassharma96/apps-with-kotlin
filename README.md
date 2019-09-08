@@ -39,3 +39,6 @@ https://developer.android.com/jetpack/docs/guide#separation-of-concerns
 
 `Test apps on Android`
 https://developer.android.com/training/testing
+
+`Re-using layouts`
+https://developer.android.com/training/improving-layouts/reusing-layouts
