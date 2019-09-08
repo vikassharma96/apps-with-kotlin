@@ -45,3 +45,6 @@ https://developer.android.com/training/testing
 
 `Re-using layouts`
 https://developer.android.com/training/improving-layouts/reusing-layouts
+
+`Coroutines`
+https://codelabs.developers.google.com/codelabs/kotlin-coroutines/#0
