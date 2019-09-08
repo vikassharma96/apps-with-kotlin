@@ -162,4 +162,6 @@ uicontroller offscreen no updates
 uicontoller backonscreen get updates
 new uicontroller observes get current data
 uicontroller destroyed, it cleans up connection
-                     
+In some cases we need to pass data to viewmodel on initializations so general idea to create a viewmodelfactory
+factories are the classed that knows how to instantiate classes
+databinding - means taking data and bind it to the view object
