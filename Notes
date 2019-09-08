@@ -165,3 +165,8 @@ uicontroller destroyed, it cleans up connection
 In some cases we need to pass data to viewmodel on initializations so general idea to create a viewmodelfactory
 factories are the classed that knows how to instantiate classes
 databinding - means taking data and bind it to the view object
+
+DateUtils.formatElapsedTime(newTime) this formatting belongs to view modelto do simple manipulation to live data such as 
+changing integer to string we usemethod called transformation.map so we have LiveData A we apply transformations and then 
+resul to LiveData B which we observer
+for complex transformation we have switch map or mediator live data
