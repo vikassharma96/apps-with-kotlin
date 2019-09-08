@@ -36,3 +36,6 @@ https://developer.android.com/training/data-storage/room/migrating-db-versions
 
 `separations of concerns`
 https://developer.android.com/jetpack/docs/guide#separation-of-concerns
+
+`Test apps on Android`
+https://developer.android.com/training/testing
