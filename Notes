@@ -150,3 +150,16 @@ what happens during an input event.
 The ViewModel never contains references to activities, fragments, or views.
 androidTest folder which require emulating android frameworks
 test folder which run test without emulating android frameworks
+Observer Pattern - We have an object called a subject which keeps track of a list of other object known as observers
+observers watch or observe the subject when status of the subject changes it notifies the observer by calling a method in
+observer. In livedata case subject is livedata object and observers are the ui controllers the state changes whenever data
+wrapped inside of livedata changes
+UIController ----> LiveData  uicontroller observer for livedata value changes
+UIController <---- LiveData  livedata observer for uicontroller with lifecycleobserver
+MutableLiveData which can be mutated but LiveData which we can read not modify not able to call set value used for encapsulation
+Lifecycle Awareness -
+uicontroller offscreen no updates
+uicontoller backonscreen get updates
+new uicontroller observes get current data
+uicontroller destroyed, it cleans up connection
+                     
