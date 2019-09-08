@@ -1,4 +1,7 @@
 # DevAppsWithKotlin
+
+`Android Architecture Components`
+https://developer.android.com/topic/libraries/architecture/
 https://github.com/googlecodelabs
 
 `The Android Lifecycle cheat sheet — part I: Single Activity - This shows order of lifecycle calls for single activity.`
