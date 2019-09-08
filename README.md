@@ -21,5 +21,5 @@ https://developer.android.com/guide/components/processes-and-threads#kotlin
 `Saving UI States`
 https://developer.android.com/topic/libraries/architecture/saving-states
 
-`A collection of samples to discuss and showcase different architectural tools and patterns for Android apps`
+`A collection of samples to showcase different architectural tools and patterns for Android apps`
 https://github.com/googlesamples/android-architecture
