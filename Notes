@@ -135,3 +135,18 @@ source ~/.bash_profile
 Ensure you can run adb by typing:
 adb
 You should see output, including something like:
+
+UiController(actiivty/fragment)
+|
+--[livedata]viewmodel  
+live data classes is crucial for communicating for the viewmodel to the ui controller that it should update and redraw the screen
+viewmodel is an abstract class that holds app's ui data and survives configuration changes
+best part is viewmodel has not restriction on size as in case of savedinstancestate which is 100k bytes
+never construct viewmodel yourself if we did we end up constructing viewmodel everytime fragment were recreated which not solve
+our rotation issue insteade lifecycle library created viewmodel for us with requesting viewmodelproviders
+The ViewModel is a stable place to store the data to display in the associated UI controller.
+The Fragment draws the data on screen and captures input events. It should not decide what to display on screen or process 
+what happens during an input event.
+The ViewModel never contains references to activities, fragments, or views.
+androidTest folder which require emulating android frameworks
+test folder which run test without emulating android frameworks
