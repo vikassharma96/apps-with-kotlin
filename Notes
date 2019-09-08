@@ -165,3 +165,70 @@ uicontroller destroyed, it cleans up connection
 In some cases we need to pass data to viewmodel on initializations so general idea to create a viewmodelfactory
 factories are the classed that knows how to instantiate classes
 databinding - means taking data and bind it to the view object
+
+DateUtils.formatElapsedTime(newTime) this formatting belongs to view modelto do simple manipulation to live data such as 
+changing integer to string we usemethod called transformation.map so we have LiveData A we apply transformations and then 
+resul to LiveData B which we observer
+for complex transformation we have switch map or mediator live data
+
+Mobile device have processor and these days most of them have multiple hardware processor that each run processes concurrently
+this is called multiprocessing to use processor more efficiently the operating system can enable an application to create more
+than one thread of execution within a process this is called multithreading.
+
+                          /* Multithreading and Coroutines */
+Mobile device have processor and these days most of them have multiple hardware processor
+that each run processes concurrently this is called multiprocessing to use processor more
+efficiently the operating system can enable an application to create more than one thread
+of execution within a process this is called multithreading eg think of reading multiple book
+at same time switching between books after each chapter eventually finishing all books
+but we can't read in more than one book at the same time in this case reader represents
+processor and each book represents code than needs to be executed and the act of reading
+each book represent thread of execution.
+scheduler it takes into account things such as priorities and makes sure all thread
+get to run and finish and dispatcher which sets up threads that is it sends your books that
+you need to read and specify the context for that to happen think context as separate
+specialized reading room.
+In android main thread is a single thread that handles all the updates to the UI and main
+thread is also the thread that calls all click handlers and other UI and lifecycle callbacks
+this is why it also called UI thread or default thread meaning unless you explicitly switch
+threads or class runs on different threads everything you do is on main thread.
+UI thread has to runs smoothly for great user experience app to display user without any pauses
+main thread has to update the screens every 16ms or 60 frames per second.
+so to get work done away from main thread a pattern for performing long running tasks without
+blocking the main thread is callbacks by using callbacks we can start long running tasks on
+a background thread when task complete callback supplied as an argument is calls to inform
+of the result on the main thread but they have drawback callback become hard to read and they
+while code look sequential the callback run at some asynchronous in future and callback
+don't allow to use language features such as exceptions
+In kotlin we have coroutines to handle long running tasks elegantly and efficiently.
+in kotlin coroutines lets you convert callback based code to sequential code which make more
+readable and even use language features such as exceptions.
+coroutines are -
+1.asynchronous 2.non blocking 3.sequential code - use suspend function to make asynchronous
+code sequential - asynchronous means coroutines runs independently rom from the main
+execution steps of the program.
+one of the important aspect of async is that we cannot expect the result is available to us
+until we explicitly wait for it. eg lets say we want an answer of a questions that requires
+some research and we ask a colleague they go off and work on it which is if synchronously
+and on separate thread unless we wait for answer we can continue to do other work that
+doesn't not depend on their answer until they come back and tell you what the answer is.
+Non-blocking means the system is not blocking the main or UI thread. because our coroutine
+code is compiled from sequential code we don't need to specify callbacks and compiler will
+makes sure that the results of coroutines are available before continuing and resuming.
+Suspend is kotlin way of marking a function or function type available to coroutines. when
+a coroutines called a functions marked with suspend instead of blocking untill the function
+returns like normal function calls it suspend executions until the result is ready then it
+resumes where it left off with the results while it suspends waiting for the result it
+unblocks the threads that's it running on so other functions or coroutines can run. suspend
+keyword doesn't specify thread code runs on suspend functions may runs on background thread
+or main thread.
+To use coroutines in kotlin we need
+1.Job 2.Dispatcher 3.Scope
+Job - a job is anything that can be cancelled all coroutines have a job and we can use this
+to cancel the coroutines. jobs can be arranged in parent child hierarchy so cancellation
+of parent leads to immediate cancellation of all its children.
+Dispatcher - dispatcher sends off coroutines to run on various threads. Dispatcher.MAIN runs
+task on main thread and Dispatcher.IO for offloading blocking of i/o task to shared pool of thread.
+Scope - scope combines information, including a job and dispatcher, to define a context in
+which coroutines runs. scope keeps track of coroutines when we launch a coroutines it's in
+scope which means we said which scope keeps track of coroutines

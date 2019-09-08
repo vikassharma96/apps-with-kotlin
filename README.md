@@ -1,4 +1,7 @@
 # DevAppsWithKotlin
+
+`Android Architecture Components`
+https://developer.android.com/topic/libraries/architecture/
 https://github.com/googlecodelabs
 
 `The Android Lifecycle cheat sheet — part I: Single Activity - This shows order of lifecycle calls for single activity.`
@@ -29,3 +32,19 @@ https://developer.android.com/guide/topics/resources/string-resource#formatting-
 
 `Bind layout views to Architecture Components`
 https://developer.android.com/topic/libraries/data-binding/architecture#livedata
+
+`Testing and Migrating Room Database`
+https://medium.com/androiddevelopers/testing-room-migrations-be93cdb0d975
+https://developer.android.com/training/data-storage/room/migrating-db-versions
+
+`separations of concerns`
+https://developer.android.com/jetpack/docs/guide#separation-of-concerns
+
+`Test apps on Android`
+https://developer.android.com/training/testing
+
+`Re-using layouts`
+https://developer.android.com/training/improving-layouts/reusing-layouts
+
+`Coroutines`
+https://codelabs.developers.google.com/codelabs/kotlin-coroutines/#0
