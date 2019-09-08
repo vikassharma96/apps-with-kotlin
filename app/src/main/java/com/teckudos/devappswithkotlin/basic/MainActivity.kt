@@ -1,10 +1,10 @@
-package com.teckudos.devappswithkotlin
+package com.teckudos.devappswithkotlin.basic
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
+import com.teckudos.devappswithkotlin.R
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {

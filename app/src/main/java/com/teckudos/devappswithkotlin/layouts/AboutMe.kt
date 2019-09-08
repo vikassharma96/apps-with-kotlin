@@ -1,4 +1,4 @@
-package com.teckudos.devappswithkotlin
+package com.teckudos.devappswithkotlin.layouts
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -6,17 +6,21 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
+import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.databinding.ActivityAboutMeBinding
 
 class AboutMe : AppCompatActivity() {
 
     private lateinit var binding: ActivityAboutMeBinding
-    private val myName: MyName = MyName("Vikas Sharma")
+    private val myName: MyName =
+        MyName("Vikas Sharma")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_about_me)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_about_me)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_about_me
+        )
         /*findViewById<Button>(R.id.done_button).setOnClickListener {
             addNickname(it)
         }*/
