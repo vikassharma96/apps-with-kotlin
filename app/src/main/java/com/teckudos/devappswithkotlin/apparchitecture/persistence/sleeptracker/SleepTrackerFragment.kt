@@ -21,6 +21,9 @@ import com.teckudos.devappswithkotlin.databinding.FragmentSleepTrackerBinding
  */
 class SleepTrackerFragment : Fragment() {
 
+    private lateinit var binding: FragmentSleepTrackerBinding
+    private lateinit var sleepTrackerViewModel: SleepTrackerViewModel
+
     /**
      * Called when the Fragment is ready to display content to the screen.
      *
@@ -32,7 +35,7 @@ class SleepTrackerFragment : Fragment() {
     ): View? {
 
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentSleepTrackerBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_sleep_tracker, container, false
         )
 
@@ -42,7 +45,7 @@ class SleepTrackerFragment : Fragment() {
 
         val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
 
-        val sleepTrackerViewModel =
+        sleepTrackerViewModel =
             ViewModelProviders.of(
                 this, viewModelFactory
             ).get(SleepTrackerViewModel::class.java)
@@ -51,6 +54,27 @@ class SleepTrackerFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+        setAdapter()
+
+        setListeners()
+
+        return binding.root
+    }
+
+    private fun setAdapter() {
+        val adapter = SleepNightAdapter()
+        binding.sleepList.adapter = adapter
+
+        // by using viewlifecycleowner we can make sure this observer is only around when
+        // recyclerview is still on screen
+        sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
+    }
+
+    private fun setListeners() {
         sleepTrackerViewModel.navigateToSleepQuality.observe(this, Observer { night ->
             night?.let {
                 this.findNavController().navigate(
@@ -71,8 +95,6 @@ class SleepTrackerFragment : Fragment() {
                 sleepTrackerViewModel.doneShowingSnackbar()
             }
         })
-
-        return binding.root
     }
 }
 
