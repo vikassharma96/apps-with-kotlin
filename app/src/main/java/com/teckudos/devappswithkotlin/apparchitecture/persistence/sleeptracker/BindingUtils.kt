@@ -1,4 +1,3 @@
-/*
 package com.teckudos.devappswithkotlin.apparchitecture.persistence.sleeptracker
 
 import android.widget.ImageView
@@ -6,8 +5,10 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.apparchitecture.persistence.database.SleepNight
+import com.teckudos.devappswithkotlin.apparchitecture.persistence.utils.convertDurationToFormatted
 import com.teckudos.devappswithkotlin.apparchitecture.persistence.utils.convertNumericQualityToString
 
+// In kotlin we can write a binding adapter as an extension function
 @BindingAdapter("sleepImage")
 fun ImageView.setSleepImage(item: SleepNight?) {
     item?.let {
@@ -35,4 +36,4 @@ fun TextView.setSleepQualityString(item: SleepNight?) {
     item?.let {
         text = convertNumericQualityToString(item.sleepQuality, context.resources)
     }
-}*/
+}
