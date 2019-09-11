@@ -64,12 +64,18 @@ class SleepTrackerFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        val manager = GridLayoutManager(activity, 3)
+        val gridLayoutManager = GridLayoutManager(activity, 3)
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int) = when (position) {
+                0 -> 3
+                else -> 1
+            }
+        }
         val adapter = SleepNightAdapter(SleepNightListener { nightId ->
             sleepTrackerViewModel.onSleepNightClicked(nightId)
             // Toast.makeText(context, "${nightId}", Toast.LENGTH_LONG).show()
         })
-        binding.sleepList.layoutManager = manager
+        binding.sleepList.layoutManager = gridLayoutManager
         binding.sleepList.adapter = adapter
 
         // by using viewlifecycleowner we can make sure this observer is only around when
@@ -77,7 +83,8 @@ class SleepTrackerFragment : Fragment() {
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer {
             it?.let {
                 // adapter.data = it
-                adapter.submitList(it)
+                // adapter.submitList(it)
+                adapter.addHeaderAndSubmitList(it)
             }
         })
     }
@@ -104,10 +111,12 @@ class SleepTrackerFragment : Fragment() {
             }
         })
 
-        sleepTrackerViewModel.navigateToSleepDataQuality.observe(this, Observer {night ->
+        sleepTrackerViewModel.navigateToSleepDataQuality.observe(this, Observer { night ->
             night?.let {
-                this.findNavController().navigate(SleepTrackerFragmentDirections
-                    .actionSleepTrackerFragmentToSleepDetailFragment(night))
+                this.findNavController().navigate(
+                    SleepTrackerFragmentDirections
+                        .actionSleepTrackerFragmentToSleepDetailFragment(night)
+                )
                 sleepTrackerViewModel.onSleepDataQualityNavigated()
             }
         })

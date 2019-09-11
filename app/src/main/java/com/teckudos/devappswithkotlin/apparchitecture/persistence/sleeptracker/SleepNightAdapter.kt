@@ -1,12 +1,21 @@
 package com.teckudos.devappswithkotlin.apparchitecture.persistence.sleeptracker
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.apparchitecture.persistence.database.SleepNight
 import com.teckudos.devappswithkotlin.databinding.ListItemSleepNightBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+private val ITEM_VIEW_TYPE_HEADER = 0
+private val ITEM_VIEW_TYPE_ITEM = 1
 
 // recycler view never interacts directly with view instead all its operations are done on
 // view holder. adapter exposes three methods for recyclerview to us GetItemCount,
@@ -23,7 +32,12 @@ import com.teckudos.devappswithkotlin.databinding.ListItemSleepNightBinding
 // recyclerview adapter they take our data and adapt into something that databinding can use
 // to bind the view like text or an image.
 class SleepNightAdapter(val clickListener: SleepNightListener) :
-    ListAdapter<SleepNight, SleepNightAdapter.ViewHolder>(SleepNightDiffCallback()) {
+    ListAdapter<DataItem, RecyclerView.ViewHolder>(SleepNightDiffCallback()) {
+    // by changing SleepNightAdapter.ViewHolder to RecyclerView.ViewHolder we make adapter to accept
+    // or support any type of viewholder
+
+    // to convert List<SleepNight> to List<DataItem> we do it in background
+    private val adapterScope = CoroutineScope(Dispatchers.Default)
 
     // no need to define data in case of listadapter
     /*var data = listOf<SleepNight>()
@@ -41,25 +55,57 @@ class SleepNightAdapter(val clickListener: SleepNightListener) :
             // old list to produce new list. DiffUtil only draw changed item and animate
         }*/
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         // val layoutInflater = LayoutInflater.from(parent.context)
         // val view = layoutInflater
         //    .inflate(R.layout.list_item_sleep_night, parent, false)
         // return ViewHolder(view)
-        return ViewHolder.from(parent)
+        //return ViewHolder.from(parent)
         // this gives us a clean way to create a new viewholder and encapsulate the details
         // of inflation and what layout to the viewholder class.
+
+        return when (viewType) {
+            ITEM_VIEW_TYPE_HEADER -> TextViewHolder.from(parent)
+            ITEM_VIEW_TYPE_ITEM -> ViewHolder.from(parent)
+            else -> throw ClassCastException("Unknown viewType ${viewType}")
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return when (getItem(position)) {
+            is DataItem.Header -> ITEM_VIEW_TYPE_HEADER
+            is DataItem.SleepNightItem -> ITEM_VIEW_TYPE_ITEM
+        }
+    }
+
+    fun addHeaderAndSubmitList(list: List<SleepNight>?) {
+        adapterScope.launch {
+            val items = when (list) {
+                null -> listOf(DataItem.Header)
+                else -> listOf(DataItem.Header) + list.map { DataItem.SleepNightItem(it) }
+            }
+            withContext(Dispatchers.Main) {
+                submitList(items)
+            }
+        }
     }
 
     // no need to override it too while using ListAdapter
     /*override fun getItemCount(): Int = data.size*/
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        // val item = getItem(position)
         // val item = data[position] // no need with ListAdapter it provide getItem
         // val res = holder.itemView.context.resources so as this is method of viewholder
         // class so we encapsulate and move logic of class into class
-        holder.bind(item, clickListener)
+        // holder.bind(item, clickListener)
+
+        when (holder) {
+            is ViewHolder -> {
+                val nightItem = getItem(position) as DataItem.SleepNightItem
+                holder.bind(nightItem.sleepNight, clickListener)
+            }
+        }
     }
 
     /*private fun ViewHolder.bind( this is extension function of our class viewholder
@@ -82,6 +128,16 @@ class SleepNightAdapter(val clickListener: SleepNightListener) :
             }
         )
     }*/
+
+    class TextViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        companion object {
+            fun from(parent: ViewGroup): TextViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val view = layoutInflater.inflate(R.layout.header, parent, false)
+                return TextViewHolder(view)
+            }
+        }
+    }
 
     // RecyclerView doesn't know anything about binding objects or data binding but we can
     // expose recyclerview API that's power of recyclerview adapter api we design code that
@@ -142,17 +198,17 @@ class SleepNightAdapter(val clickListener: SleepNightListener) :
  * Used by ListAdapter to calculate the minumum number of changes between and old list and a new
  * list that's been passed to `submitList`.
 */
-class SleepNightDiffCallback : DiffUtil.ItemCallback<SleepNight>() {
+class SleepNightDiffCallback : DiffUtil.ItemCallback<DataItem>() {
     // DiffUtil gives callback in case we want to do a custom check for equality
-    override fun areItemsTheSame(oldItem: SleepNight, newItem: SleepNight): Boolean {
+    override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
         // this method called if we move one item to other position so it checks it's
         // new position from old position basically we check if item have same id or not
-        return oldItem.nightId == newItem.nightId
+        return oldItem.id == newItem.id
         // it's important we only check id in this callback so diffutil will know difference
         // between an item to edit, remove or moved and an item being changed.
     }
 
-    override fun areContentsTheSame(oldItem: SleepNight, newItem: SleepNight): Boolean {
+    override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
         // to determine if an item has changed we override this
         // call to check whether two item have same data used to detect if contents of an item
         // have changed this methods calls equality instead of object equals
@@ -166,8 +222,19 @@ class SleepNightListener(val clickListener: (sleepId: Long) -> Unit) {
     fun onClick(night: SleepNight) = clickListener(night.nightId)
 }
 
-// simple implementation of recyclerview
+sealed class DataItem {
+    data class SleepNightItem(val sleepNight: SleepNight) : DataItem() {
+        override val id = sleepNight.nightId
+    }
 
+    object Header : DataItem() {
+        override val id = Long.MIN_VALUE
+    }
+
+    abstract val id: Long
+}
+
+// simple implementation of recyclerview
 /*class SleepNightAdapter : RecyclerView.Adapter<TextItemViewHolder>() {
 
     var data = listOf<SleepNight>()
