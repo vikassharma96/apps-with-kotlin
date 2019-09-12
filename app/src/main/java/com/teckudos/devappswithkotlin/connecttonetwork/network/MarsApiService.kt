@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 // communicate with server on the internet -
 // most webservices today run webservices using a common stateless web architecture known as REST
@@ -32,6 +33,8 @@ import retrofit2.http.GET
 
 private const val BASE_URL = "https://mars.udacity.com/"
 
+enum class MarsApiFilter(val value: String) { SHOW_RENT("rent"), SHOW_BUY("buy"), SHOW_ALL("all") }
+
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
@@ -51,7 +54,7 @@ private val retrofit = Retrofit.Builder()
 interface MarsApiService {
     @GET("realestate")
 //    fun getProperties(): Call<List<MarsProperty>> // call object used to start the request
-    fun getProperties() : Deferred<List<MarsProperty>>
+    fun getProperties(@Query("filter") type: String) : Deferred<List<MarsProperty>>
     // a deferred is a kind of job coroutine job that can directly return a result
     // as we know job provide to cancel and determine state of coroutine unlike a job differed has
     // a method called await it's a suspend function on deferred it causes code to wait without

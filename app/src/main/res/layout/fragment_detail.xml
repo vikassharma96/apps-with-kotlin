@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{viewModel.selectedProperty.type}"
+                android:text="@{viewModel.displayPropertyType}"
                 android:textColor="#de000000"
                 android:textSize="39sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,13 +49,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{String.valueOf(viewModel.selectedProperty.price)}"
+                android:text="@{viewModel.displayPropertyPrice}"
                 android:textColor="#de000000"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
                 tools:text="$100,000" />
-
+            <!--android:text="@{String.valueOf(viewModel.selectedProperty.price)}"-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

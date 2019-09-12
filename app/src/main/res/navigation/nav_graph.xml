@@ -21,6 +21,9 @@
         android:name="com.teckudos.devappswithkotlin.connecttonetwork.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.teckudos.devappswithkotlin.connecttonetwork.network.MarsProperty" />
     </fragment>
 
 </navigation>

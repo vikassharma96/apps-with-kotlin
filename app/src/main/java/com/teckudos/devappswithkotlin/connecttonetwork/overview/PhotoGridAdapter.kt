@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.teckudos.devappswithkotlin.connecttonetwork.network.MarsProperty
 import com.teckudos.devappswithkotlin.databinding.GridViewItemBinding
 
-class PhotoGridAdapter : ListAdapter<MarsProperty, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+class PhotoGridAdapter(val onClickListener: OnClickListener) :
+    ListAdapter<MarsProperty, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<MarsProperty>() {
         override fun areItemsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
@@ -27,14 +28,21 @@ class PhotoGridAdapter : ListAdapter<MarsProperty, PhotoGridAdapter.MarsProperty
 
     override fun onBindViewHolder(holder: PhotoGridAdapter.MarsPropertyViewHolder, position: Int) {
         val marsProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(marsProperty)
+        }
         holder.bind(marsProperty)
     }
 
-    class MarsPropertyViewHolder(private var binding: GridViewItemBinding):
+    class MarsPropertyViewHolder(private var binding: GridViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(marsProperty: MarsProperty) {
             binding.property = marsProperty
             binding.executePendingBindings()
         }
+    }
+
+    class OnClickListener(val clickListener: (marsProperty: MarsProperty) -> Unit) {
+        fun onClick(marsProperty: MarsProperty) = clickListener(marsProperty)
     }
 }
