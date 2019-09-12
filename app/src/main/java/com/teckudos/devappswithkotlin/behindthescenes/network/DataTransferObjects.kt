@@ -1,7 +1,8 @@
 package com.teckudos.devappswithkotlin.behindthescenes.network
 
-import com.example.android.devbyteviewer.domain.Video
 import com.squareup.moshi.JsonClass
+import com.teckudos.devappswithkotlin.behindthescenes.database.DatabaseVideo
+import com.teckudos.devappswithkotlin.behindthescenes.domain.Video
 
 /**
  * DataTransferObjects go in this file. These are responsible for parsing responses from the server
@@ -33,12 +34,13 @@ data class NetworkVideo(
         val thumbnail: String,
         val closedCaptions: String?)
 
-/**
+
+/*
  * Convert Network results to database objects
  */
-fun NetworkVideoContainer.asDomainModel(): List<Video> {
+fun NetworkVideoContainer.asDomainModel(): List<DatabaseVideo> {
     return videos.map {
-        Video(
+        DatabaseVideo(
                 title = it.title,
                 description = it.description,
                 url = it.url,
