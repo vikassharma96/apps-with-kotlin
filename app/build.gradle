@@ -83,18 +83,18 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
 
-    // view model and live data
+    // view model and live data (arch components)
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
 
     // Room
     implementation "androidx.room:room-runtime:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
 
-    // Coroutines
+    // Coroutines for getting of the UI thread
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
 
-    // Moshi
+    // Moshi for parsing JSON format
     implementation "com.squareup.moshi:moshi:$version_moshi"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
 
@@ -110,6 +110,12 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$version_glide"
+
+    // Joda time library for dealing with time
+    implementation "joda-time:joda-time:$version_joda"
+
+    // WorkManager
+    implementation "android.arch.work:work-runtime-ktx:$version_work"
 
     //testing
     testImplementation 'junit:junit:4.12'

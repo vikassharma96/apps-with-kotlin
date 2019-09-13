@@ -29,3 +29,11 @@ fun List<DatabaseVideo>.asDomainModel(): List<Video> {
         )
     }
 }
+
+
+/*
+* 1.The first are domain objects, stored in the domain package.
+* 2.The second are data transfer objects for the network stored in the network package.
+* The third type of object is a database object. These are different from data transfer objects
+* and domain objects because they’re entirely for interacting with the database.
+*/
