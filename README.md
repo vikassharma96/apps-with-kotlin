@@ -48,3 +48,7 @@ https://developer.android.com/training/improving-layouts/reusing-layouts
 
 `Coroutines`
 https://codelabs.developers.google.com/codelabs/kotlin-coroutines/#0
+
+`Handler in android`
+https://medium.com/@ankit.sinhal/handler-in-android-d138c1f4980e
+https://developer.android.com/guide/components/processes-and-threads
