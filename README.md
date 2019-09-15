@@ -51,3 +51,5 @@ https://codelabs.developers.google.com/codelabs/kotlin-coroutines/#0
 
 `Handler in android`
 https://medium.com/@ankit.sinhal/handler-in-android-d138c1f4980e
+https://www.youtube.com/playlist?list=PLrnPJCHvNZuDl4WUKi26WbzLMsM1sXCD4
+https://www.youtube.com/watch?v=0Z5MZ0jL2BM
