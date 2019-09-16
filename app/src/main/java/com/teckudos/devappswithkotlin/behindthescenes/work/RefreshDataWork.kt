@@ -11,18 +11,21 @@ class RefreshDataWorker(appContext: Context, params: WorkerParameters) :
     CoroutineWorker(appContext, params) {
 
     companion object {
+
         const val WORK_NAME = "RefreshDataWorker"
     }
 
-    override suspend fun doWork(): Payload {
+    override suspend fun doWork(): Result {
         val database = getDatabase(applicationContext)
         val repository = VideosRepository(database)
 
         return try {
             repository.refreshVideos()
-            Payload(Result.SUCCESS)
+            Result.success()
         } catch (e: HttpException) {
-            Payload(Result.RETRY)
+            Result.retry()
         }
     }
+
+
 }

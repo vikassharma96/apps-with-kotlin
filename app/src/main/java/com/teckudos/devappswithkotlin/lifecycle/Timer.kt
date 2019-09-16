@@ -66,3 +66,23 @@ class Timer(lifecycle: Lifecycle) : LifecycleObserver {
         handler.removeCallbacks(runnable)
     }
 }
+
+// There are two ways to start background thread
+// 1. by extending thread class overriding its run method  2. by implementing runnable interface and
+// pass this runnable object to new thread we also have android specific classes called handler and
+// looper from this we have some higher abstract classes like AsyncTask, HandlerThread, ThreadPoolExecutor
+// A Handler allows communicating back with UI thread from other background thread.
+// AsyncTask - helps get work on/off the UI thread
+// HandlerThread - dedicated thread for API callbacks
+// ThreadPool - running lots of parallel work
+// IntentService - helps get intents of the UI thread
+/*
+* Thread -                 run()
+*         start() -------------------------> terminate
+*                 |task1|task2|task3|task4|...
+*                        Message Queue
+*                      <---{Looper}--> loops through message queue infinite times
+* so we have handler which responsible for getting this packages of work into message queue and execute it
+* handler only work for thread that has message queue and looper so we can't instantiate inside run()
+* method or background thread without calling Looper.prepare means providing looper
+* */

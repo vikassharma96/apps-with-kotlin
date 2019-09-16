@@ -16,6 +16,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -116,6 +117,9 @@ dependencies {
 
     // WorkManager
     implementation "android.arch.work:work-runtime-ktx:$version_work"
+
+    // Client for retrieving location
+    implementation "com.google.android.gms:play-services-location:$version_play_services"
 
     //testing
     testImplementation 'junit:junit:4.12'

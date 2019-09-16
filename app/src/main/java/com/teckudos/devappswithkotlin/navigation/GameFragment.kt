@@ -11,6 +11,11 @@ import androidx.navigation.findNavController
 import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.databinding.FragmentGameBinding
 
+// Activity inherit from Context class but fragment not so we have to use context property from
+// fragment to have access to app data typically associated with the context such as string
+// and image resource - ActivityCompat extends ContextCompat , open class Fragment : ComponentCallbacks
+// OS can only open activity
+
 class GameFragment : Fragment() {
     data class Question(
             val text: String,
@@ -146,3 +151,8 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 }
+
+// Dynamic string -
+// <string name="my_xml_string">My sister %1$s is %2$d years old.</string>
+// String myString = "Mary"; int myInt = 12;
+// String formatted = getString(R.string.my_xml_string, myString, myInt);
