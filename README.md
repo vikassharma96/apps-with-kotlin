@@ -56,3 +56,6 @@ https://www.youtube.com/watch?v=0Z5MZ0jL2BM
 
 `handle orientation changes old`
 https://android.jlelse.eu/handling-orientation-changes-in-android-7072958c442a
+
+`Android interview questions`
+https://github.com/MindorksOpenSource/android-interview-questions
