@@ -69,8 +69,37 @@ class Timer(lifecycle: Lifecycle) : LifecycleObserver {
 
 // There are two ways to start background thread
 // 1. by extending thread class overriding its run method  2. by implementing runnable interface and
-// pass this runnable object to new thread we also have android specific classes called handler and
-// looper from this we have some higher abstract classes like AsyncTask, HandlerThread, ThreadPoolExecutor
+// pass this runnable object to new thread -
+// eg - extending thread class
+//  class DemoThread extends Thread{
+//         override public void run(){ //background work}
+//  }
+//  DemoThread thread = new DemoThread();
+//  thread.start();
+//
+//  eg - implementing runnable interface
+//  class DemoRunnable implements Runnable{
+//         override public void run(){ //background work}
+//  }
+//  DemoRunnable runnable = new DemoRunnable();
+//   new Thread(runnable).start(); //background thread
+//   runnable.run() //main thread
+//
+// Now we can't access view from this background thread to access view from background thread we use
+// handler and when we create new Handler() at beginning of activity it executed on main thread
+// so this handler will work only with the messageQueue of main thread.
+// class DemoHandler implements Runnable{
+//         override public void run(){
+//                    handler.post(new Runnable(){
+//                          override public void run(){
+//                              view.setText("communicate from background thread to main thread!")
+//                            }
+//                    })
+//         }
+//
+//
+// we also have android specific classes called handler and looper from this we have some higher
+// abstract classes like AsyncTask, HandlerThread, ThreadPoolExecutor.
 // A Handler allows communicating back with UI thread from other background thread.
 // AsyncTask - helps get work on/off the UI thread
 // HandlerThread - dedicated thread for API callbacks

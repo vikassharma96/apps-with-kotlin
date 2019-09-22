@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// Gradle is the build tool for android Gradle Andorid Build Tool
+// Gradle is the build tool for android Gradle Android Build Tool
 //- what device run your app
 //- compile to executable
 //- dependency management

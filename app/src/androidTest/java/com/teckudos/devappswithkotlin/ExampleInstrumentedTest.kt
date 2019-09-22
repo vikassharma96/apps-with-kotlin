@@ -22,3 +22,5 @@ class ExampleInstrumentedTest {
         assertEquals("com.teckudos.devappswithkotlin", appContext.packageName)
     }
 }
+
+// tests that are more heavyweighta and require emulating the android framework are in androidTest folder
