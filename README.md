@@ -21,7 +21,7 @@ https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-iii-
 `Processes and threads`
 https://developer.android.com/guide/components/processes-and-threads#kotlin
 
-`Saving UI States`
+`Saving UI States or handle orientaion and process shutdown`
 https://developer.android.com/topic/libraries/architecture/saving-states
 
 `A collection of samples to showcase different architectural tools and patterns for Android apps`
