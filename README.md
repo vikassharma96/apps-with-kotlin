@@ -21,7 +21,7 @@ https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-iii-
 `Processes and threads`
 https://developer.android.com/guide/components/processes-and-threads#kotlin
 
-`Saving UI States`
+`Saving UI States or handle orientaion and process shutdown`
 https://developer.android.com/topic/libraries/architecture/saving-states
 
 `A collection of samples to showcase different architectural tools and patterns for Android apps`
@@ -53,3 +53,9 @@ https://codelabs.developers.google.com/codelabs/kotlin-coroutines/#0
 https://medium.com/@ankit.sinhal/handler-in-android-d138c1f4980e
 https://www.youtube.com/playlist?list=PLrnPJCHvNZuDl4WUKi26WbzLMsM1sXCD4
 https://www.youtube.com/watch?v=0Z5MZ0jL2BM
+
+`handle orientation changes old`
+https://android.jlelse.eu/handling-orientation-changes-in-android-7072958c442a
+
+`Android interview questions`
+https://github.com/MindorksOpenSource/android-interview-questions
