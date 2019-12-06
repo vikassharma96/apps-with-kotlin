@@ -60,10 +60,3 @@ fun getDatabase(context: Context): VideosDatabase {
 // from server we right it on offline cache.
 
 
-// previously a lot of different ways to do background thread we had things from jobscheduler, async task,
-// threads and handlers, loopers, syncadapter, alarmamanger.
-// if the work we have doesn't need to survive process that's we shouldn't need work manager we can go
-// with coroutine or thread. eg - let's say we download an image and want to tint our UI based on that color
-// we only really need to do it in process we don't really need to wake up app to do that work so only
-// used coroutine
-
