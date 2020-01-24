@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.databinding.FragmentGameBinding
+import kotlin.math.min
 
 // Activity inherit from Context class but fragment not so we have to use context property from
 // fragment to have access to app data typically associated with the context such as string
@@ -80,7 +81,7 @@ class GameFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = Math.min((questions.size + 1) / 2, 3)
+    private val numQuestions = min((questions.size + 1) / 2, 3)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

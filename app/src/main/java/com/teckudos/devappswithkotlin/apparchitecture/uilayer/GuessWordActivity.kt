@@ -18,14 +18,14 @@ class GuessWordActivity : AppCompatActivity() {
 
 // Lifecycle library includes the lifecycle, lifecycleobserver and lifecycleowner classes it also
 // includes viewmodel and livedata classes.
-// we can resolve configuration changes issue by using onSaveInstanceState bundle and retreive it in
+// we can resolve configuration changes issue by using onSaveInstanceState bundle and retrieve it in
 // onRestoreInstanceState but it but they required to write extra code to store the state in the
-// bundle and the logic to retreive the state and it can only store 100kilobytes of data if we risk
+// bundle and the logic to retrieve the state and it can only store 100kilobytes of data if we risk
 // to store to much data it through an exception.
 
 // Application architecture
 // Design of an application's classes and relationship between them such that code base is more
-// organized, performative in particular scenerio and easier to work with.
+// organized, performative in particular scenario and easier to work with.
 // UIController -> ViewModel - do actual decision making, hold data needed for UI and prepare to display
 //     =========== LiveData
 // Viewmodel - Abstract class that holds app's UI data. Survive configurations changes it has no
