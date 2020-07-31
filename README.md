@@ -18,6 +18,10 @@ fragment interact.`
 
 https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-iii-fragments-afc87d4f37fd
 
+`The Android Lifecycle cheat sheet — part IV : ViewModels, Translucent Activities and Launch Modes`
+
+https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-iv-49946659b094
+
 `Processes and threads`
 https://developer.android.com/guide/components/processes-and-threads#kotlin
 
