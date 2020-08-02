@@ -97,3 +97,16 @@ interface dd{
 * to resolve this we use Demo("creating class object", ::printSquare)
 * */
 
+/*
+* androidtest folder - Expresso test UITest
+* @Test fun testing() {
+*        val activityScenerio = ActivityScenerio.launch(DemoActivity::class.java)
+*        onView(withId(R.id.demo_title)
+*              .check(matches(WithText(R.string.demo_text)))
+* }
+* it run alphabetically
+* test folder - Junit4 test
+*
+*
+* */
+

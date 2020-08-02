@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.teckudos.devappswithkotlin.R
 import com.teckudos.devappswithkotlin.databinding.HomeFragmentBinding
+import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
@@ -29,7 +30,9 @@ class HomeFragment : Fragment() {
 
         viewModel.navigateToSearch.observe(viewLifecycleOwner,
             Observer<Boolean> { shouldNavigate ->
+                Timber.i("called outside.....")
                 if (shouldNavigate == true) {
+                    Timber.i("called inside....")
                     val navController = binding.root.findNavController()
                     navController.navigate(R.id.action_homeFragment_to_gdgListFragment)
                     viewModel.onNavigatedToSearch()

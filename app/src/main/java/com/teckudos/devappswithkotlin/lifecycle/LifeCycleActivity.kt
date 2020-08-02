@@ -59,6 +59,7 @@ class LifeCycleActivity : AppCompatActivity() {
             onDessertClicked()
         }
 
+        this.lifecycle.currentState
         // Setup dessertTimer, passing in the lifecycle
         timer = Timer(this.lifecycle)
 

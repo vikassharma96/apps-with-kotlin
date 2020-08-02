@@ -44,7 +44,7 @@ class GameWonFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
         //check if activity can resolve our intent if not then we hide share menu
-        if(null == getSharedIntent().resolveActivity(activity!!.packageManager)){
+        if (null == getSharedIntent().resolveActivity(activity!!.packageManager)) {
             menu.findItem(R.id.share).isVisible = false
         }
     }

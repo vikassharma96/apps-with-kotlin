@@ -37,7 +37,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/behind" />
+                    app:srcCompat="@drawable/ic_sleep_active" />
                 <!-- we can use style style="?attr/textAppearanceHeadline5"
                 but it override our theme font so we use
                 android:textAppearance="?attr/textAppearanceHeadline5"
@@ -99,7 +99,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/description"
-                    app:srcCompat="@drawable/wtm" />
+                    app:srcCompat="@drawable/ic_sleep_0" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/start_grid"

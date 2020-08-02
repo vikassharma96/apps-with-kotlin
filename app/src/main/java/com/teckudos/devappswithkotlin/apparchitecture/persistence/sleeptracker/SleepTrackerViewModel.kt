@@ -187,7 +187,7 @@ class SleepTrackerViewModel(
 // readable and even use language features such as exceptions.
 // coroutines are -
 // 1.asynchronous 2.non blocking 3.sequential code - use suspend function to make asynchronous
-// code sequential - asynchronous means coroutines runs independently rom from the main
+// code sequential - asynchronous means coroutines runs independently from from the main
 // execution steps of the program.
 // one of the important aspect of async is that we cannot expect the result is available to us
 // until we explicitly wait for it. eg lets say we want an answer of a questions that requires
@@ -214,3 +214,14 @@ class SleepTrackerViewModel(
 // Scope - scope combines information, including a job and dispatcher, to define a context in
 // which coroutines runs. scope keeps track of coroutines when we launch a coroutines it's in
 // scope which means we said which scope keeps track of coroutines
+
+// Coroutine can be think of a job that need to be done and the thread is place where the jobs gets done
+// many coroutine can operate at same time inside single thread so it's not a thread many coroutine can
+// exist inside the thread
+// delay() -> only delay single coroutine not thread itself by calling Thread.sleep() it sleep the entire thread
+// when we mark a function suspend it means it can be asynchronous
+// Coroutine Scope - way to organize coroutine into grouping
+// 1.IO - for api and database query 2.Main - for main thread 3.Default for heavy computation
+// CoroutineScope(IO).launch { } now to set text from background thread to main thread we can do with
+// withContext(Main){ } inside suspend function - when we call with context within couroutine it will
+// switch the context of coroutine to what we have given

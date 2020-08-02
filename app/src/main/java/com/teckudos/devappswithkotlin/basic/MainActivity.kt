@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             rollDice()
         }
         diceImage = findViewById(R.id.dice_image)
+
     }
 
     private fun rollDice() {
@@ -45,6 +46,36 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(drawableResource)
     }
 }
+
+/*
+* Android Architecture
+* 1.Applications
+*          |               Applications               |
+*          |  (eg - email,sms,alaram,camera,gallery)  |
+* 2.Application Framework
+*          |            Application Framework         |
+* |(Activity Manager, Windows Manager, Content Providers, View Systems, Notifications Manager, Package
+* Manager, Resource Manager, Telephony Manager, Location Manager, XMPP Services)|
+* 3.Libraries - Java-based libraries that are specific to Android development
+* 4.Android Runtime - Dalvik VM enables every Android application to run in its own process, with
+* its own instance of the Dalvik virtual machine.
+*        |     Libraries          |                        |      Android Runtime    |
+* |(Surface Manager, Media Framework, SQLite, OpenGl)   (Core Libraries, Dalvik Virtual Machine)|
+* 5.Linux Kernel - This provides a level of abstraction between the device hardware and it contains
+* all the essential hardware drivers like camera, keypad, display etc.
+*          |                Linux Kernel               |
+* |(Display Driver, Camera Driver, Bluetooth driver, USB driver, WIFI driver, Audio Driver, Power Management)|
+* */
+
+/*
+* Android Application Component
+* 1.Activities - Ui to the applications
+* 2.Services - handle background process associated with applications
+* 3.Broadcast receiver - communicate with android os and applications
+* 4.Content Providers - A content provider component supplies data from one application to others on
+* request. Such requests are handled by the methods of the ContentResolver class. The data may be
+* stored in the file system, the database or somewhere else entirely.
+* */
 
 // Gradle is the build tool for android Gradle Android Build Tool
 //- what device run your app

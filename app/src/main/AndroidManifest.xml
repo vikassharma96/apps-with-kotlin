@@ -26,97 +26,74 @@
         <activity
             android:name=".appdesign.DesignActivity"
             android:theme="@style/DesignAppTheme">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity android:name=".behindthescenes.ui.DevByteActivity">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!--
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <!--<activity android:name=".connecttonetwork.ConnectNetworkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
-        </activity>
-        <!--
-<activity android:name=".connecttonetwork.ConnectNetworkActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        </activity>-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
         <activity android:name=".apparchitecture.persistence.SleepTrackerActivity">
-
-            <!--
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
         </activity>
-        <!--
-<activity
+
+        <!--<activity
             android:name=".GuessWordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape">
-            to lock screen to landscape</activity>
-        -->
+            to lock screen to landscape</activity>-->
         <activity android:name=".apparchitecture.uilayer.GuessWordActivity">
-
-            <!--
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
         </activity>
         <activity android:name=".lifecycle.LifeCycleActivity">
-
-            <!--
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
         </activity>
         <activity android:name=".navigation.GameActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
         </activity>
         <activity android:name=".motionlayout.MotionLayoutActivity">
-
-            <!--
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
         </activity>
         <activity android:name=".layouts.ConstraintLayoutDemo">
-
-            <!--
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
         </activity>
         <activity android:name=".layouts.AboutMe">
 
@@ -138,7 +115,6 @@
             </intent-filter>
             -->
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
